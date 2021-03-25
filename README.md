@@ -16,6 +16,9 @@ This repository contains all the exercises and assessments of the UC Microproces
 ### My Drafts <br/>
 Pieces of code for exercises and assessments, notes that I take during practical classes and other experiences using Assembly and C/C++ languages. It is an authentic disorganized notebook.<br/>
 
+### Exercises
+Description soon
+
 ***Bibliography:*** 
 
 
