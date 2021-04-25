@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 extern int decrement(int number);
+extern int higher(int number1, int number2);
 
 void decrement_a_unit()
 {
@@ -15,9 +16,20 @@ void decrement_a_unit()
 	}
 }
 
+void higher_number()
+{
+	printf("\nExercise 1B, chose a higher number: \n");
+	int numbers[][2] = {{1, 2}, {-4, -15}, {0, 5}, {6, -1}, {67, 91}, {-15, -62}};
+	for (int idx = 0 ; idx < 7 ; idx ++) {
+		int n1 = numbers[idx][0];
+		int n2 = numbers[idx][1];
+		printf("The higher value between %d and %d numbers is %d\n", n1, n2, higher(n1, n2));
+	}
+}
 
 int main()
 {
 	decrement_a_unit();
+	higher_number();
 	return EXIT_SUCCESS;
 }
