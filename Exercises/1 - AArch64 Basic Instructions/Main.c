@@ -8,6 +8,7 @@ extern int decrement(int number);
 extern long higher(long number1, long number2);
 extern long absolute(long number);
 extern int half(long number);
+extern int sum(int min, int max, int range);
 
 void decrement_a_unit()
 {
@@ -47,11 +48,21 @@ void half_numbers()
 	}
 }
 
+void sum_values ()
+{
+	printf("\nExercise 3A, sum range: \n");
+	int min = 11;
+	int max = 101;
+	int range = 10;
+	printf("Sum min %d until max %d with range %d is %d\n", min, max, range, sum(min, max, range));
+}
+
 int main()
 {
 	decrement_a_unit();
 	higher_number();
 	absolute_value();
 	half_numbers();
+	sum_values();
 	return EXIT_SUCCESS;
 }
