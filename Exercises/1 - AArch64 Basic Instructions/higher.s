@@ -2,7 +2,7 @@
 .global higher
 .type higher, "function"
 
-higher: 	cmp X1, X0;
-			b.lt final
+higher: 	cmp X0, X1;
+			b.ge finish
 			mov X0, X1;
-final:		ret
+finish:		ret
