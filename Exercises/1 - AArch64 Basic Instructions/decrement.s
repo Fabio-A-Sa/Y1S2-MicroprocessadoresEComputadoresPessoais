@@ -2,5 +2,7 @@
 .global decrement
 .type decrement, "function"
 
-decrement: 	SUB X0, X0, 1
-            RET
+// Decrementar de uma unidade o valor de X0
+
+decrement: 	SUB X0, X0, #1
+			RET
