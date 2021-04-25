@@ -7,7 +7,7 @@
 extern int decrement(int number);
 extern long higher(long number1, long number2);
 extern long absolute(long number);
-extern long half(int number);
+extern int half(long number);
 
 void decrement_a_unit()
 {
