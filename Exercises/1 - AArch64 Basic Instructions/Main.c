@@ -1,11 +1,9 @@
-// Created on February 21, 2021
-// @author: Fábio Araújo de Sá
-
 #include <stdio.h>
 #include <stdlib.h>
 
 extern int decrement(int number);
-extern int higher(int number1, int number2);
+extern long higher(long number1, long number2);
+extern long absolute(long number);
 
 void decrement_a_unit()
 {
@@ -19,11 +17,20 @@ void decrement_a_unit()
 void higher_number()
 {
 	printf("\nExercise 1B, chose a higher number: \n");
-	int numbers[][2] = {{1, 2}, {-4, -15}, {0, 5}, {6, -1}, {67, 91}, {-15, -62}};
-	for (int idx = 0 ; idx < 7 ; idx ++) {
-		int n1 = numbers[idx][0];
-		int n2 = numbers[idx][1];
-		printf("The higher value between %d and %d numbers is %d\n", n1, n2, higher(n1, n2));
+	long numbers[][2] = {{1, 2}, {-4, -15}, {0, 5}, {6, -1}, {67, 91}, {-15, -62}};
+	for (int idx = 0 ; idx < 6 ; idx ++) {
+		long n1 = numbers[idx][0];
+		long n2 = numbers[idx][1];
+		printf("The higher value between %ld and %ld numbers is %ld\n", n1, n2, higher(n1, n2));
+	}
+}
+
+void absolute_value()
+{
+	printf("\nExercise 1C, absolute numbers: \n");
+	long numbers[] = {-1, -6, 3, 382, -23, 2, 0, -13, 9, 24, -5, -32};
+	for (int x = 0 ; x < 12 ; x++) {
+		printf("Absolute value of %ld is %ld\n", numbers[x], absolute(numbers[x]));
 	}
 }
 
@@ -31,5 +38,6 @@ int main()
 {
 	decrement_a_unit();
 	higher_number();
+	absolute_value();
 	return EXIT_SUCCESS;
 }
