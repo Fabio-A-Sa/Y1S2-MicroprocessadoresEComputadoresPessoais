@@ -5,6 +5,6 @@
 // Colocar no registo X0 o maior dos valores dos registos X0 e X11
 
 higher: 	CMP X0, X1;
-			B.GE finish
-			MOV X0, X1;
+		B.GE finish
+		MOV X0, X1;
 finish:		RET
