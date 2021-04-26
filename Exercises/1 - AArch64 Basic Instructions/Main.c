@@ -10,6 +10,7 @@ extern long absolute(long number);
 extern int half(long number);
 extern long sum(int min, int max, int range);
 extern long bits(long number);
+extern int compair(long number1, long number2);
 
 void decrement_a_unit()
 {
@@ -67,6 +68,17 @@ void how_many_bits()
 	}
 }
 
+void same_bits()
+{
+	printf("\nExercise 3C, how many matched bits in current pair of integers: \n");
+	long numbers[][2] = {{1, 2}, {-4, -15}, {0, 5}, {6, -1}, {67, 91}, {-15, -62}};
+	for (int idx = 0 ; idx < 6 ; idx ++ ) {
+		long first_number = numbers[idx][0];
+		long second_number = numbers[idx][1];
+		printf("Numbers %ld and %ld have %d bits in same position\n", first_number, second_number, compair(first_number, second_number));
+	}
+}
+
 int main()
 {
 	decrement_a_unit();
@@ -75,5 +87,6 @@ int main()
 	half_numbers();
 	sum_values();
 	how_many_bits();
+	same_bits();
 	return EXIT_SUCCESS;
 }
