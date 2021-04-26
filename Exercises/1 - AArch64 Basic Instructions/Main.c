@@ -97,7 +97,7 @@ void how_many_pairs()
 	}
 }
 
-void alphabetic()
+void alphabetic_counter()
 {
 	printf("\nExercise 3E: \nHere are %ld letters between 0x0AF008H and 0x0BB00FH", alphabetic());
 }
@@ -112,6 +112,6 @@ int main()
 	how_many_bits();
 	same_bits();
 	how_many_pairs();
-	alphabetic();
+	alphabetic_counter();
 	return EXIT_SUCCESS;
 }
