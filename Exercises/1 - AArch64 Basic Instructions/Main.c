@@ -12,6 +12,7 @@ extern long sum(int min, int max, int range);
 extern long bits(long number);
 extern int compair(long number1, long number2);
 extern int pairs(long *array, long size);
+extern long alphabetic();
 
 void decrement_a_unit()
 {
@@ -96,6 +97,11 @@ void how_many_pairs()
 	}
 }
 
+void alphabetic()
+{
+	printf("\nExercise 3E: \nHere are %ld letters between 0x0AF008H and 0x0BB00FH", alphabetic());
+}
+
 int main()
 {
 	decrement_a_unit();
@@ -106,6 +112,6 @@ int main()
 	how_many_bits();
 	same_bits();
 	how_many_pairs();
+	alphabetic();
 	return EXIT_SUCCESS;
 }
-
