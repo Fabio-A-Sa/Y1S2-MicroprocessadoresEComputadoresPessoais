@@ -11,6 +11,7 @@ extern int half(long number);
 extern long sum(int min, int max, int range);
 extern long bits(long number);
 extern int compair(long number1, long number2);
+extern int pairs(long *array, long size);
 
 void decrement_a_unit()
 {
@@ -79,6 +80,22 @@ void same_bits()
 	}
 }
 
+void how_many_pairs()
+{
+	printf("\nExercise 3D, how many even numbers is in current array of integers: \n");
+	long size = 10;
+	long numbers[][10] = {	{1, 3, 4, 62, 3, 2, 4, 5, 7, 7}, {1, 3, 4, 62, 3, 2, 4, 5, 7, 7}, {1, 3, 4, 62, 3, 2, 4, 5, 7, 7},
+							{1, 3, 4, 62, 3, 2, 4, 5, 7, 7}, {1, 3, 4, 62, 3, 2, 4, 5, 7, 7}, {1, 3, 4, 62, 3, 2, 4, 5, 7, 7} };
+
+	for (int i = 0 ; i < 6 ; i++ ) {
+		printf("Sequence ");
+		for (int j = 0 ; j < size ; j++ ) {
+			printf("%ld ", numbers[i][j]);
+		}
+		printf("have %ld even numbers\n", pairs(numbers[i], size));
+	}
+}
+
 int main()
 {
 	decrement_a_unit();
@@ -88,5 +105,6 @@ int main()
 	sum_values();
 	how_many_bits();
 	same_bits();
+	how_many_pairs();
 	return EXIT_SUCCESS;
 }
