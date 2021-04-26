@@ -8,7 +8,8 @@ extern int decrement(int number);
 extern long higher(long number1, long number2);
 extern long absolute(long number);
 extern int half(long number);
-extern int sum(int min, int max, int range);
+extern long sum(int min, int max, int range);
+extern long bits(long number);
 
 void decrement_a_unit()
 {
@@ -42,7 +43,7 @@ void absolute_value()
 void half_numbers()
 {
 	printf("\nExercise 1D, 32 + 32: \n");
-	long numbers[] = {0, 1, 2, -1, 3952369588353213235, 38982912, 1126453957886081};
+	long int numbers[] = {0, 1, 2, -1, 3952369588353213235, 38982912, 1126453957886081};
 	for (int y = 0 ; y < 7 ; y++ ) {
 		printf("Number %ld receives a value %ld\n", numbers[y], half(numbers[y]));
 	}
@@ -54,7 +55,16 @@ void sum_values ()
 	int min = 11;
 	int max = 101;
 	int range = 10;
-	printf("Sum min %d until max %d with range %d is %d\n", min, max, range, sum(min, max, range));
+	printf("Sum min %d until max %d with range %d is %ld\n", min, max, range, sum(min, max, range));
+}
+
+void how_many_bits()
+{
+	printf("\nExercise 3B, bits == 1: \n");
+	long numbers[] = {3, 4, 2, 7, 34, 6, 2, 8, 12};
+	for (int k = 0 ; k < 9 ; k++ ) {
+		printf("Number %ld have %ld bits 1 in binary representation\n", numbers[k], bits(numbers[k]));
+	}
 }
 
 int main()
@@ -64,5 +74,6 @@ int main()
 	absolute_value();
 	half_numbers();
 	sum_values();
+	how_many_bits();
 	return EXIT_SUCCESS;
 }
