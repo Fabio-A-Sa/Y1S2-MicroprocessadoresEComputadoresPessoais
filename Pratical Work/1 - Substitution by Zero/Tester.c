@@ -13,13 +13,15 @@ X2: endereço-base da sequência.
 extern int CheckABS( int numx, int tam, int *seq);
 
 int main(void) {
-    int x = 5;
-    int tamanho = 8;
-    int ve[] = {7, -8, -23, 56, 20, -10, 0, 40};
+
+
+    int x = 20;                                        //X0
+    int tamanho = 8;                                  //X1
+    int ve[] = {0,0,0,-21,0,19,0,19};     //X2 pointer
     int res;
 
     res = CheckABS(x, tamanho, ve);
-    printf("Foram modificados %d elementos da sequencia ve[]", res);
+    printf("Mudou estes valores: %d\n", res);
 
     return EXIT_SUCCESS;
 }

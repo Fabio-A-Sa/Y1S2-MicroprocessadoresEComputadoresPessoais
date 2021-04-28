@@ -15,7 +15,7 @@ jump1: CMP X4, X0
 	ADD X3, X3, #1
 	STR X6, [X2, X5]
 jump2: SUB X1, X1, #1
-	ADD X5, X5, #8
+	ADD X5, X5, #8   // Atention
 	B loop
 
 finish: MOV X0, X3
