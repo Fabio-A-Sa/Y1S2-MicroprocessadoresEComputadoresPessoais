@@ -9,6 +9,7 @@ X2: endereço-base da sequência.
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <array>
 
 extern int CheckABS( int numx, int tam, int *seq);
 
