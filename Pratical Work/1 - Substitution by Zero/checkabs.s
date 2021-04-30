@@ -2,20 +2,21 @@
 .global CheckABS
 .type CheckABS, "function"
 
-CheckABS: 	MOV X7, 0
+CheckABS: 	MOV W7, 0
 			MOV X5, 0
-			MOV X6, 0
-loop: 		CBZ X1, finish
-			LDRSW X4, [X2, X5]
-			CMP X4, X6
+			MOV W6, 0
+loop: 		CBZ W1, finish
+			LDR W4, [X2, X5]
+			CMP W4, W6
 			B.GE pula1
-			NEG X4, X4
-pula1: 		CMP X4, X0
+			NEG W4, W4
+pula1: 		CMP W4, W0
 			B.LS pula2
-			ADD X7, X7, 1
-			STR X6, [X2, X5]
-pula2: 		SUB X1, X1, 1
-			ADD X5, X5, 4
+			ADD W7, W7, 1
+			STR W6, [X2, X5]
+pula2: 		SUB W1, W1, 1
+			ADD W5, W5, 4
 			b loop
-finish: 	MOV X0, X7
+finish: 	MOV W0, W7
 			RET
+
