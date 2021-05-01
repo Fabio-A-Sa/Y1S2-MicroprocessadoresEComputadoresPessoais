@@ -5,7 +5,7 @@
 // Determinar quantas vezes a sequência ’10110’ aparece na representação binária do valor de X0 sem sobreposição
 
 sequence1:  MOV X2, 0
-	    MOV X3, 12 // math.floor(64/5)
+	    MOV X3, 12 //  math.floor(64/5)
 	    MOV X7, #5
 
 loop:       CBZ X3, finish
