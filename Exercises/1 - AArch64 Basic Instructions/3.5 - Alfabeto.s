@@ -2,9 +2,9 @@
 .global alphabetic
 .type alphabetic, "function"
 
-alphabetic: MOV X4, 0
+alphabetic: 	MOV X4, 0
 		MOV X6, X2
-loop: 	CMP X0, X1
+loop: 		CMP X0, X1
 		B.HI finish
 		LDR X5, [X0]
 		ADD X0, X0, 1
