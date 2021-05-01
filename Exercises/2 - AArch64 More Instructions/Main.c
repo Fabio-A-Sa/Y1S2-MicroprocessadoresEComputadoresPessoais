@@ -8,6 +8,7 @@ extern int SOMA_V(int *a, int n);
 extern int MAX_W(int *vector, int dimension);
 extern long int MIN_DW(long int *vector, int dimension);
 extern int MAX_HW(int *vector, int dimension);
+extern int MED_DW(long *vector, int dimension);
 
 void total_sum() {
 
@@ -83,7 +84,15 @@ void max_in_half_word_vector(){
 
 void medio_doubleword_vector(){
 
-
+	printf("\nExercise 2D:\n");
+	long vector[] = {-2, 3, 0, -2, 2, 5, -8, -4, 6, -12, -29};
+	int dimension = sizeof(vector) / sizeof(vector[0]);
+	printf("Average of numbers ");
+	for (int i = 0 ; i < dimension ; i++ ) {
+		printf("%ld, ", vector[i]);
+	}
+	int result = MED_DW(vector, dimension);
+	printf("is %d.", result);
 }
 
 int main(void)
