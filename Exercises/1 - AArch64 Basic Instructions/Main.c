@@ -1,4 +1,4 @@
-  // Created on April, 2021
+// Created on April, 2021
 // @author: Fábio Araújo de Sá
 
 #include <stdio.h>
@@ -12,7 +12,7 @@ extern long sum(int min, int max, int range);
 extern long bits(long number);
 extern int compair(long number1, long number2);
 extern int pairs(long *array, long size);
-extern long alphabetic();
+extern int alphabetic(int begin, int end, int letterA, int letterZ);
 
 void decrement_a_unit()
 {
@@ -95,23 +95,4 @@ void how_many_pairs()
 		}
 		printf("have %ld even numbers\n", pairs(numbers[i], size));
 	}
-}
-
-void alphabetic_counter()
-{
-	printf("\nExercise 3E: \nHere are %ld letters between 0x0AF008H and 0x0BB00FH", alphabetic());
-}
-
-int main()
-{
-	decrement_a_unit();
-	higher_number();
-	absolute_value();
-	half_numbers();
-	sum_values();
-	how_many_bits();
-	same_bits();
-	how_many_pairs();
-	alphabetic_counter();
-	return EXIT_SUCCESS;
 }
