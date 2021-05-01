@@ -14,5 +14,5 @@ loop: 	CBZ X1, finish
 	ADD X4, X4, #8
 	SUB X1, X1, #1
 	B loop
-finish:		SUB X0, X6, X3
+finish:	SUB X0, X6, X3
 	RET
