@@ -2,6 +2,8 @@
 .global compair
 .type compair, "function"
 
+// Determinar o número de bits iguais em posições correspondentes de X0 e X1
+
 compair: MOV X2, #0
 	MOV X3, #1
 loop: 	AND X4, X0, X3
