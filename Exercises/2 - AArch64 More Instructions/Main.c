@@ -9,6 +9,7 @@ extern int MAX_W(int *vector, int dimension);
 extern long int MIN_DW(long int *vector, int dimension);
 extern int MAX_HW(int *vector, int dimension);
 extern int MED_DW(long *vector, int dimension);
+extern int N_RANGE(int *vector, int dimension, int min, int max);
 
 void total_sum() {
 
@@ -95,6 +96,21 @@ void medio_doubleword_vector(){
 	printf("is %d.", result);
 }
 
+void numbers_in_range() {
+
+	printf("\nExercise 2E:\n");
+	int a = 4;
+	int b = 8;
+	int vector[] = {0, 3, 4, 7, 1, 5, 9, 4, 2, 8, 4, 3, 9, 3, 5, 7, 3, 7};
+	int dimension = sizeof(vector) / sizeof(vector[0]);
+	printf("Numbers in vector: ");
+	for (int i = 0 ; i < dimension ; i++ ) {
+		printf("%d ", vector[i]);
+	}
+	int answer = N_RANGE(vector, dimension, a, b);
+	printf("\nThere are %d numbers between %d and %d in vector.", answer, a, b);
+}
+
 int main(void)
 {
 	total_sum();
@@ -102,5 +118,6 @@ int main(void)
 	min_in_doubleword_vector();
 	max_in_half_word_vector();
 	medio_doubleword_vector();
+	numbers_in_range();
 	return EXIT_SUCCESS;
 }
