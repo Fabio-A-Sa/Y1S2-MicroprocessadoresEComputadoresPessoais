@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 extern int SOMA_V(int *a, int n);
+extern int MAX_W(int *vector, int dimension);
 
 void total_sum() {
 
@@ -36,11 +37,25 @@ void total_sum() {
 		printf("%d, ", v3[i]);
 	}
 	answer = SOMA_V(v3, dimension);
-	printf("%d is %d", v3[dimension-1], answer);
+	printf("%d is %d.\n", v3[dimension-1], answer);
+}
+
+void max_in_word_vector() {
+
+	printf("\nExercise 2A:\n");
+	int vector[] = {34, -21, 4, 97, 3, 8, 93, 5, -42, 6, 134, -221};
+	int dimension = sizeof(vector) / sizeof(vector[0]);
+	printf("Max of numbers ");
+	for (int i = 0 ; i < dimension ; i++ ) {
+		printf("%d, ", vector[i]);
+	}
+	int result = MAX_W(vector, dimension);
+	printf("is %d.", result);
 }
 
 int main(void)
 {
 	total_sum();
+	max_in_word_vector();
 	return EXIT_SUCCESS;
 }
