@@ -2,6 +2,9 @@
 .global alphabetic
 .type alphabetic, "function"
 
+// Contar o número de letras maiúsculas que existem na zona de memória que começa em 0AF008H
+e termina em 0BB00FH
+
 alphabetic: 	MOV X4, 0
 		MOV X6, X2
 loop: 		CMP X0, X1
