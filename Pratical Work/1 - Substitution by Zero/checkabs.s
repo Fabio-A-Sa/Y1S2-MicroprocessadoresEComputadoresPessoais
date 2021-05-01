@@ -25,6 +25,7 @@ JUMP1: 		CMP W4, W0			// É maior que o valor a comparar?
 JUMP2: 		SUB W1, W1, 1			// Por fim faltam apenas W1 - 1 valores a comparar ...
 		ADD W5, W5, 4			// ... e o offset passa a offset + 4 (bytes), pois a sequência tem números de 32 bits (4 bytes)
 		b LOOP
+		
 FINISH: 	MOV W0, W7			// Devolve o valor do contador de alterações (W7), para um registo 0 (W0)
 		RET
 
