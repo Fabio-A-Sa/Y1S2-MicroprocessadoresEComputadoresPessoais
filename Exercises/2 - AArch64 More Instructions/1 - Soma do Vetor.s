@@ -2,6 +2,8 @@
 .global SOMA_V
 .type SOMA_V, "function"
 
+// Pretende-se calcular a soma dos N elementos de um vetor (array)
+
 SOMA_V:	MOV W5, 0
 loop: 	CBZ W1, finish
 	LDR X3, [X0]
