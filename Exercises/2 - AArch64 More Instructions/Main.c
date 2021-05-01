@@ -6,6 +6,8 @@
 
 extern int SOMA_V(int *a, int n);
 extern int MAX_W(int *vector, int dimension);
+extern long int MIN_DW(long int *vector, int dimension);
+extern int MAX_HW(int *vector, int dimension);
 
 void total_sum() {
 
@@ -53,9 +55,43 @@ void max_in_word_vector() {
 	printf("is %d.", result);
 }
 
+void min_in_doubleword_vector() {
+
+	printf("\nExercise 2B:\n");
+	long int vector[] = {-4532545, 2345, -266236, -262534, 234626, 25246, 25546, -8487, -4252, 24456, -125234, -221};
+	int dimension = sizeof(vector) / sizeof(vector[0]);
+	printf("Min of numbers ");
+	for (int i = 0 ; i < dimension ; i++ ) {
+		printf("%ld, ", vector[i]);
+	}
+	long int result = MIN_DW(vector, dimension);
+	printf("is %ld.", result);
+}
+
+void max_in_half_word_vector(){
+
+	printf("\nExercise 2C:\n");
+	int vector[] = {-2, 3, 0, -2, 2, 5, -8, -4, 6, -12, -29};
+	int dimension = sizeof(vector) / sizeof(vector[0]);
+	printf("Max of numbers ");
+	for (int i = 0 ; i < dimension ; i++ ) {
+		printf("%d, ", vector[i]);
+	}
+	int result = MAX_HW(vector, dimension);
+	printf("is %d.", result);
+}
+
+void medio_doubleword_vector(){
+
+
+}
+
 int main(void)
 {
 	total_sum();
 	max_in_word_vector();
+	min_in_doubleword_vector();
+	max_in_half_word_vector();
+	medio_doubleword_vector();
 	return EXIT_SUCCESS;
 }
