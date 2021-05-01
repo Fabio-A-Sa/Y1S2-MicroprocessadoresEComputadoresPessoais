@@ -2,6 +2,8 @@
 .global sequence2
 .type sequence2, "function"
 
+// Determinar quantas vezes a sequência ’10110’ aparece na representação binária do valor de X0 com sobreposição
+
 sequence2:  MOV X2, 0
 	    MOV X3, 64
 	    MOV X7, #1
