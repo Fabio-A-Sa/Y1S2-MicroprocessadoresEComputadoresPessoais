@@ -110,6 +110,22 @@ void alphabetic_counter()
 
 }
 
+void without_overlap()
+{
+	long int number = 1073741823;
+	int compar = 31;
+	int answer = sequence1(number, compar);
+	printf("\nExercise 3F1: \nNumber %ld comparated to %d is %d.", number, compar, answer);
+}
+
+void with_overlap()
+{
+	long int number = 1073741823;
+	int compar = 31;
+	int answer = sequence2(number, compar);
+	printf("\nExercise 3F2: \nNumber %ld comparated to %d is %d.", number, compar, answer);
+}
+
 int main()
 {
 	decrement_a_unit();
@@ -121,5 +137,7 @@ int main()
 	same_bits();
 	how_many_pairs();
 	alphabetic_counter();
+	without_overlap();
+	with_overlap();
 	return EXIT_SUCCESS;
 }
