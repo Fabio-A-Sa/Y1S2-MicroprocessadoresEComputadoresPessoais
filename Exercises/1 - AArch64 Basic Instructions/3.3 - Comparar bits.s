@@ -3,7 +3,7 @@
 .type compair, "function"
 
 compair: MOV X2, #0
-		MOV X3, #1
+	MOV X3, #1
 loop: 	AND X4, X0, X3
 	AND X5, X1, X3
 	EOR X6, X5, X4
