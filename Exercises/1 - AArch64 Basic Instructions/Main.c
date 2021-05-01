@@ -13,6 +13,8 @@ extern long bits(long number);
 extern int compair(long number1, long number2);
 extern int pairs(long *array, long size);
 extern int alphabetic(long int begin, long int end, int letterA, int letterZ);
+extern int sequence1(long int number, int compar);
+extern int sequence2(long int number, int compar);
 
 void decrement_a_unit()
 {
