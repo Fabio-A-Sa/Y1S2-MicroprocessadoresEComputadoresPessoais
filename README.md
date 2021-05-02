@@ -17,7 +17,15 @@ This repository contains all the exercises and assessments of the UC Microproces
 Pieces of code for exercises and assessments, notes that I take during practical classes and other experiences using Assembly and C/C++ languages. It is an authentic disorganized notebook.<br/>
 
 ### Exercises
-Exercises 
+Varied exercises of easy, medium and difficult level, about the subject taught in the present week. They complement the weekly work developed during the practical classes. <br/>
+
+### Pratical Work
+One practical work per week in Assembly and C language, on routines and subroutines. Procedure:
+1. Write and test program
+2. Submit the program text to the correction server
+3. Obtain basic test results
+4. If necessary, start over from 1
+5. Submit final version
 
 ***Bibliography:*** 
 
