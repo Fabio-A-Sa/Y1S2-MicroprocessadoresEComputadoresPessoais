@@ -112,6 +112,14 @@ void numbers_in_range() {
 	printf("\nThere are %d numbers between %d and %d in vector.", answer, a, b);
 }
 
+void len() {
+
+	printf("\nExercise 3A:\n");
+	char word1[] = "hello world";
+	char word2[] = "Fábio Araújo de Sá";
+	printf("Length of 'hello world' is %d\nLength of 'Fábio Araújo de Sá' is %d.", LENGTH(word1), LENGTH(word2));
+}
+
 int main(void)
 {
 	total_sum();
@@ -120,5 +128,6 @@ int main(void)
 	max_in_half_word_vector();
 	medio_doubleword_vector();
 	numbers_in_range();
+	len();
 	return EXIT_SUCCESS;
 }
