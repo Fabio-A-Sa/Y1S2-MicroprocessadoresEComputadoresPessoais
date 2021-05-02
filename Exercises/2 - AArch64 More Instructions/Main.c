@@ -11,6 +11,7 @@ extern int MAX_HW(int *vector, int dimension);
 extern int MED_DW(long *vector, int dimension);
 extern int N_RANGE(int *vector, int dimension, int min, int max);
 extern int LENGTH(char *array);
+extern int FIND(char*array, char letter);
 
 void total_sum() {
 
