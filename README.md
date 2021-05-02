@@ -29,7 +29,8 @@ One practical work per week in Assembly and C language, on routines and subrouti
 
 ***Bibliography:*** 
 
-
+[Moodle](https://moodle.up.pt/course/view.php?id=1826), João Canas Ferreira (2021)
+<br>
 
 **@ Fábio Araújo de Sá** <br/>
 **2020/2021**
