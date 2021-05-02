@@ -10,6 +10,7 @@ extern long int MIN_DW(long int *vector, int dimension);
 extern int MAX_HW(int *vector, int dimension);
 extern int MED_DW(long *vector, int dimension);
 extern int N_RANGE(int *vector, int dimension, int min, int max);
+extern int LENGTH(char *array);
 
 void total_sum() {
 
