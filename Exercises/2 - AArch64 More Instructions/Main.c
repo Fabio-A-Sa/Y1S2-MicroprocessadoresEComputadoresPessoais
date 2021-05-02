@@ -14,6 +14,8 @@ extern int LENGTH(char *array);
 extern int FIND(char*array, char letter);
 extern int VOWELS(char *array);
 extern int UPPER(char *array);
+extern int PALIND(char *array);
+extern int SPACE(char *array);
 
 void total_sum() {
 
@@ -147,6 +149,33 @@ void find_upper() {
 	printf("There are %d upper letters in'hello WorLd'\nThere are %d upper letters in 'Fabio Araujo de Sa'", UPPER(word1), UPPER(word2));
 }
 
+void palindrome() {
+
+	printf("\nExercise 3E:\n");
+	char pal[] = "ANOTARAMADATADAMARATONA";
+	if (PALIND(pal)) {
+		printf("'ANOTARAMADATADAMARATONA' is a palindrome!\n");
+	}
+	else {
+		printf("'ANOTARAMADATADAMARATONA' isn't a palindrome!\n");
+	}
+	char npal[] = "SOMETHINGWRONG";
+	if (PALIND(npal)) {
+		printf("'SOMETHINGWRONG' is a palindrome!\n");
+	}
+	else {
+		printf("'SOMETHINGWRONG' isn't a palindrome!\n");
+	}
+}
+
+void words() {
+
+	char sentence[] = "Hello World It is A Test for MPCP";
+	printf("\nExercise 3F:\n");
+	printf("Sentence 'Hello World It is A Test for MPCP' have %d words.", SPACE(sentence));
+
+}
+
 int main(void)
 {
 	total_sum();
@@ -159,5 +188,7 @@ int main(void)
 	find_char();
 	find_vowels();
 	find_upper();
+	palindrome();
+	words();
 	return EXIT_SUCCESS;
 }
