@@ -12,6 +12,8 @@ extern int MED_DW(long *vector, int dimension);
 extern int N_RANGE(int *vector, int dimension, int min, int max);
 extern int LENGTH(char *array);
 extern int FIND(char*array, char letter);
+extern int VOWELS(char *array);
+extern int UPPER(char *array);
 
 void total_sum() {
 
@@ -126,7 +128,23 @@ void find_char() {
 	printf("\nExercise 3B:\n");
 	char word1[] = "hello world";
 	char word2[] = "Fabio Araujo de Sa";
-	printf("'hello world' have %d letters 'a'\nLength of 'Fabio Araujo de Sa' have %d letters 'a'.", FIND(word1, 'a'), FIND(word2, 'a'));
+	printf("'hello world' have %d letters 'a'\n'Fabio Araujo de Sa' have %d letters 'a'.", FIND(word1, 'a'), FIND(word2, 'a'));
+}
+
+void find_vowels() {
+
+	printf("\nExercise 3C:\n");
+	char word1[] = "hello world";
+	char word2[] = "Fabio Araujo de Sa";
+	printf("There are %d vowels in'hello world'\nThere are %d vowels in 'Fabio Araujo de Sa'", VOWELS(word1), VOWELS(word2));
+}
+
+void find_upper() {
+
+	printf("\nExercise 3D:\n");
+	char word1[] = "hello WorLd";
+	char word2[] = "Fabio Araujo de Sa";
+	printf("There are %d upper letters in'hello WorLd'\nThere are %d upper letters in 'Fabio Araujo de Sa'", UPPER(word1), UPPER(word2));
 }
 
 int main(void)
@@ -139,5 +157,7 @@ int main(void)
 	numbers_in_range();
 	len();
 	find_char();
+	find_vowels();
+	find_upper();
 	return EXIT_SUCCESS;
 }
