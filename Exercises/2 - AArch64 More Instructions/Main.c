@@ -16,6 +16,7 @@ extern int VOWELS(char *array);
 extern int UPPER(char *array);
 extern int PALIND(char *array);
 extern int SPACE(char *array);
+extern int BITS(int number);
 
 void total_sum() {
 
@@ -176,6 +177,17 @@ void words() {
 
 }
 
+void qtd_bits() {
+
+	printf("\nExercise 10:\n");
+	printf("Number %d needs %d bits\n", 83, BITS(83));
+	printf("Number %d needs %d bits\n", 1, BITS(1));
+	printf("Number %d needs %d bits\n", -5, BITS(-5));
+	printf("Number %d needs %d bits\n", 23, BITS(23));
+	printf("Number %d needs %d bits\n", 4, BITS(4));
+	printf("Number %d needs %d bits\n", -72, BITS(-72));
+}
+
 int main(void)
 {
 	total_sum();
@@ -190,5 +202,6 @@ int main(void)
 	find_upper();
 	palindrome();
 	words();
+	qtd_bits();
 	return EXIT_SUCCESS;
 }
