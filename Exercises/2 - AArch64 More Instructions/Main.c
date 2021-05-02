@@ -120,6 +120,14 @@ void len() {
 	printf("Length of 'hello world' is %d\nLength of 'Fábio Araújo de Sá' is %d.", LENGTH(word1), LENGTH(word2));
 }
 
+void find_char() {
+
+	printf("\nExercise 3B:\n");
+	char word1[] = "hello world";
+	char word2[] = "Fabio Araujo de Sa";
+	printf("'hello world' have %d letters 'a'\nLength of 'Fabio Araujo de Sa' have %d letters 'a'.", FIND(word1, 'a'), FIND(word2, 'a'));
+}
+
 int main(void)
 {
 	total_sum();
@@ -129,5 +137,6 @@ int main(void)
 	medio_doubleword_vector();
 	numbers_in_range();
 	len();
+	find_char();
 	return EXIT_SUCCESS;
 }
