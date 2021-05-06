@@ -1,6 +1,12 @@
+// Fábio Araújo de Sá, up202007658
+// Maio, 2021
+
 .text
 .global SelectedUpperCase
 .type SelectedUpperCase, "function"
+
+// X0 --> Letras a trocar para maiúscula, pointer, 64 bits
+// X1 --> Cadeia a ser trocada, pointer, 64 bits
 
 SelectedUpperCase: 	MOV W7, 0 				// Contador
 					MOV X6, X0 				// Pointer inicial da string de comparação
@@ -26,4 +32,3 @@ SEARCH: 			LDRB W3, [X0]			// Retira cada um dos caracteres da string de compara
 
 FINISH: 			MOV W0, W7				// Move o contador para um registo WZR e retorna
 					RET
-
