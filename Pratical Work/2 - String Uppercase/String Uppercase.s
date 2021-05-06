@@ -18,7 +18,7 @@ LOOP: 			LDRB W2, [X1]			// W2 recebe cada carácter da string a modificar
 			B.GT LOOP
 			CMP W2, 97
 			B.LT LOOP			// Se a letra for minúscula (ASCII entre 97 e 122), vai alterar no "SEARCH"
-SEARCH: 	LDRB W3, [X0]			// Retira cada um dos caracteres da string de comparação
+SEARCH: 		LDRB W3, [X0]			// Retira cada um dos caracteres da string de comparação
 			CBZ W3, LOOP			// Se chegar ao fim, acaba a procura e regressa ao LOOP principal
 			ADD X0, X0, 1			// Pointer += 1 byte
 			CMP W2, W3			// Letra da sentence == string comparação ?
@@ -30,5 +30,5 @@ SEARCH: 	LDRB W3, [X0]			// Retira cada um dos caracteres da string de comparaç
 			ADD W7, W7, 1			// Adiciona ao contador
 			B LOOP
 
-FINISH: 	MOV W0, W7			// Move o contador para um registo WZR e retorna
+FINISH: 		MOV W0, W7			// Move o contador para um registo WZR e retorna
 			RET
