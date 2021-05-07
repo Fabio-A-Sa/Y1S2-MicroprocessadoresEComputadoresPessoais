@@ -16,7 +16,7 @@ LOOP: 			LDRB W2, [X1]			// W2 recebe cada carácter da string a modificar
 			MOV X0, X6
 			CMP W2, 122
 			B.GT LOOP
-			CMP W2, 97
+			CMP W2, 97 
 			B.LT LOOP			// Se a letra for minúscula (ASCII entre 97 e 122), vai alterar no "SEARCH"
 SEARCH: 		LDRB W3, [X0]			// Retira cada um dos caracteres da string de comparação
 			CBZ W3, LOOP			// Se chegar ao fim, acaba a procura e regressa ao LOOP principal
