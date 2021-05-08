@@ -1,9 +1,9 @@
 /*
- * Escreva uma sub-rotina que aceita duas sequências: seq_A e seq_B. Os elementos de seq_B são todos distintos e apenas podem ser letras minúsculas, sem acentos ou outras alterações. 
+ * Escreva uma sub-rotina que aceita duas sequências: seq_A e seq_B. Os elementos de seq_B são todos distintos e apenas podem ser letras minúsculas, sem acentos ou outras alterações.
  * A sub-rotina altera para a sua versão maiúscula, todos os carateres de seq_A que surgem na seq_B.
  * Apenas carateres que sejam letras minúsculas, sem acentos ou outras alterações, deverão ser alterados.
  * Para além de alterar a seq_A, a sub-rotina deve retornar o número de carateres de seq_A que são alterados (este valor é um inteiro sem sinal).
- * Sequências de carateres são terminadas pelo carater nulo, o qual é codificado com o número 0; Consulte uma tabela ASCII (ex: http://www.asciitable.com/). 
+ * Sequências de carateres são terminadas pelo carater nulo, o qual é codificado com o número 0; Consulte uma tabela ASCII (ex: http://www.asciitable.com/).
  * A sub-rotina deve ter o nome SelectedUpperCase e aceitar os seguintes argumentos pela ordem indicada:
 	- endereço-base de seq_B;
 	- endereço-base de seq_A.
@@ -47,9 +47,13 @@ int main()
     char seq_L[] = "abcdefghijklmnopqrstuvwxyz";
     test (seq_K, seq_L);
 
-    char seq_M[] = "Esta frase deverá ter alguns dos seus carateres alterados para maiúscula!";
-    char seq_N[] = "xwz";
+    char seq_M[] = "Esta frase não deverá ser modificada, além das letras x y w e z";
+    char seq_N[] = "xywz";
     test (seq_M, seq_N);
+
+    char seq_O[] = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
+    char seq_P[] = "abcdefghijklmnopqrstuvwxyz";
+    test (seq_O, seq_P);
 
     return EXIT_SUCCESS;
 }
