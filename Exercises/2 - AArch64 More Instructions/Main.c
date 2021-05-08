@@ -1,6 +1,3 @@
-// Created on April, 2021
-// @author: Fábio Araújo de Sá
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -16,6 +13,9 @@ extern int VOWELS(char *array);
 extern int UPPER(char *array);
 extern int PALIND(char *array);
 extern int SPACE(char *array);
+extern int COPY1(char *arr1, char *arr2, int number);
+extern int COPY2(char *arr1, char *arr2, int number);
+extern int SIGN (int number);
 extern int BITS(int number);
 
 void total_sum() {
@@ -177,6 +177,22 @@ void words() {
 
 }
 
+void copy_vector () {
+
+	int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+	long int copy[] = {};
+	int length = 10;
+	COPY2(arr, copy, length);
+	printf("\nExercise 4: \nOriginal: %s\nCopy: %s\n", arr, copy);
+}
+
+void significativo() {
+
+	printf("\nExercise 5: Posição mais significativa de um número");
+	printf("N = 2, Answer = %d\n", SIGN(2));
+	printf("N = 52, Answer = %d\n", SIGN(52));
+}
+
 void qtd_bits() {
 
 	printf("\nExercise 10:\n");
@@ -190,18 +206,21 @@ void qtd_bits() {
 
 int main(void)
 {
-	total_sum();
-	max_in_word_vector();
-	min_in_doubleword_vector();
-	max_in_half_word_vector();
-	medio_doubleword_vector();
-	numbers_in_range();
-	len();
-	find_char();
-	find_vowels();
-	find_upper();
-	palindrome();
-	words();
-	qtd_bits();
+	//total_sum();
+	//max_in_word_vector();
+	//min_in_doubleword_vector();
+	//max_in_half_word_vector();
+	//medio_doubleword_vector();
+	//numbers_in_range();
+	//len();
+	//find_char();
+	//find_vowels();
+	//find_upper();
+	//palindrome();
+	//words();
+	//qtd_bits();
+	//copy_vector();
+	//significativo();
 	return EXIT_SUCCESS;
+
 }
