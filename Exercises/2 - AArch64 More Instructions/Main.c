@@ -236,6 +236,12 @@ void multiplication_vectors() {
 
 void product_vectors() {
 
+	int numbers1[] = {1, 2, 3, 4, 5};
+	int numbers2[] = {6, 7, 8, 9, 10};
+	print_vector(numbers1, 5);
+	print_vector(numbers2, 5);
+	int answer = VECTOR_PROD(numbers1, numbers2, 5);
+	printf("%d", answer);
 }
 
 int main(void)
@@ -255,7 +261,7 @@ int main(void)
 	//qtd_bits();
 	//copy_vector();
 	//significativo();
-	//sum_vectors();
+	sum_vectors();
 	multiplication_vectors();
 	product_vectors();
 	return EXIT_SUCCESS;
