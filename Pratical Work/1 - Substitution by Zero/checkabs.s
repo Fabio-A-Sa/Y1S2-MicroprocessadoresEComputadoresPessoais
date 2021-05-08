@@ -13,7 +13,7 @@ CheckABS: 	MOV X7, 0			// Contador das modificações, começa a zero.
 		MOV X5, 0			// Offset, começa a zero.
 		MOV W6, 0			// Número 0, para determinar se o número na sequência é positivo ou negativo ...
 						// ... e usá-lo para o Store (STR) na sequência, quando necessário.
-LOOP: 		CBZ W1, FINISH			// Se chegou ao fim da sequência, termina.
+LOOP: 	CBZ W1, FINISH			// Se chegou ao fim da sequência, termina.
 		LDR W4, [X2, X5]		// W4 recebe o valor atual da sequência.
 		CMP W4, W6
 		B.GE JUMP1			// Se for GE (greater or equal to zero), continua
@@ -26,6 +26,6 @@ JUMP2: 		SUB W1, W1, 1			// Por fim faltam apenas W1 - 1 valores a comparar ...
 		ADD W5, W5, 4			// ... e o offset passa a offset + 4 (bytes), pois a sequência tem números de 32 bits (4 bytes)
 		b LOOP
 
-FINISH: 	MOV X0, X7			// Devolve o valor do contador de alterações (X7), para um registo 0 (X0)
+FINISH: MOV X0, X7			// Devolve o valor do contador de alterações (X7), para um registo 0 (X0)
 		RET
 
