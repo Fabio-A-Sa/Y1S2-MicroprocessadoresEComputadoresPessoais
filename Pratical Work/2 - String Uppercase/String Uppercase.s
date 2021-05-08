@@ -16,19 +16,19 @@ LOOP: 			LDRB W2, [X1]			// W2 recebe cada carácter da string a modificar
 			MOV X0, X6
 			CMP W2, 122
 			B.GT LOOP
-			CMP W2, 97 
+			CMP W2, 97
 			B.LT LOOP			// Se a letra for minúscula (ASCII entre 97 e 122), vai alterar no "SEARCH"
-SEARCH: 		LDRB W3, [X0]			// Retira cada um dos caracteres da string de comparação
+SEARCH: 			LDRB W3, [X0]			// Retira cada um dos caracteres da string de comparação
 			CBZ W3, LOOP			// Se chegar ao fim, acaba a procura e regressa ao LOOP principal
 			ADD X0, X0, 1			// Pointer += 1 byte
-			CMP W2, W3			// Letra da sentence == string comparação ?
-			B.NE SEARCH			// Se não, avança para a próxima ...
-			SUB W4, W2, 32			// ... se sim, o código ASCII de w2 -= 42 (fica maiúscula)
+			CMP W2, W3			// Letra da sentence == letra da string de comparação ?
+			B.NE SEARCH			// Se não, avança para a próxima letra...
+			SUB W4, W2, 32			// ... se sim, o código ASCII de w2 -= 32 (fica maiúscula)
 			SUB X1, X1, 1
 			STRB W4, [X1]			// Faz store na string principal
 			ADD X1, X1, 1
 			ADD W7, W7, 1			// Adiciona ao contador
 			B LOOP
 
-FINISH: 		MOV W0, W7			// Move o contador para um registo WZR e retorna
+FINISH: 			MOV W0, W7			// Move o contador para um registo WZR e retorna
 			RET
