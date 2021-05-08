@@ -208,12 +208,30 @@ void qtd_bits() {
 	printf("Number %d needs %d bits\n", -72, BITS(-72));
 }
 
+void print_vector(int vector[], int number) {
+
+	for (int i = 0 ; i < number ; i++ ) {
+		printf("%d ", vector[i]);
+	}
+	printf("\n");
+}
+
 void sum_vectors() {
 
+	int numbers1[] = {1, 2, 3, 4, 5};
+	int numbers2[] = {6, 7, 8, 9, 10};
+	print_vector(numbers1, 5);
+	print_vector(numbers2, 5);
+	int answer = VECTOR_SUM(numbers1, numbers2, 5);
+	print_vector(numbers1, 5);
 }
 
 void multiplication_vectors() {
 
+	int numbers1[] = {1, 2, 3, 4, 5};
+	print_vector(numbers1, 5);
+	int answer = VECTOR_MULT(numbers1, 5);
+	print_vector(numbers1, 5);
 }
 
 void product_vectors() {
@@ -237,7 +255,7 @@ int main(void)
 	//qtd_bits();
 	//copy_vector();
 	//significativo();
-	sum_vectors();
+	//sum_vectors();
 	multiplication_vectors();
 	product_vectors();
 	return EXIT_SUCCESS;
