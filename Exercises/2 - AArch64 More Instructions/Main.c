@@ -18,9 +18,9 @@ extern int COPY2(char *arr1, char *arr2, int number);
 extern int SIGN (int number);
 extern int BITS(int number);
 
-extern int VECTOR_SUM (char *vector1, char * vector2, int number);
-extern int VECTOR_MULT (char *vector1, char * vector2, int number);
-extern int VECTOR_PROD (char *vector1, char * vector2, int number);
+extern int VECTOR_SUM (char *vector1, char * vector2, int size);
+extern int VECTOR_MULT (char *vector1, int number, int size);
+extern int VECTOR_PROD (char *vector1, char * vector2, int size);
 
 void total_sum() {
 
@@ -230,7 +230,7 @@ void multiplication_vectors() {
 
 	int numbers1[] = {1, 2, 3, 4, 5};
 	print_vector(numbers1, 5);
-	int answer = VECTOR_MULT(numbers1, 5);
+	int answer = VECTOR_MULT(numbers1 , 5, 5);
 	print_vector(numbers1, 5);
 }
 
