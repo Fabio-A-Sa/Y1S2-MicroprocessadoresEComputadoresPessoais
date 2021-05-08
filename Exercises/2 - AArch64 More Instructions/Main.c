@@ -18,6 +18,10 @@ extern int COPY2(char *arr1, char *arr2, int number);
 extern int SIGN (int number);
 extern int BITS(int number);
 
+extern int VECTOR_SUM (char *vector1, char * vector2, int number);
+extern int VECTOR_MULT (char *vector1, char * vector2, int number);
+extern int VECTOR_PROD (char *vector1, char * vector2, int number);
+
 void total_sum() {
 
 	printf("\nExercise 1:\n");
@@ -204,6 +208,18 @@ void qtd_bits() {
 	printf("Number %d needs %d bits\n", -72, BITS(-72));
 }
 
+void sum_vectors() {
+
+}
+
+void multiplication_vectors() {
+
+}
+
+void product_vectors() {
+
+}
+
 int main(void)
 {
 	//total_sum();
@@ -221,6 +237,9 @@ int main(void)
 	//qtd_bits();
 	//copy_vector();
 	//significativo();
+	sum_vectors();
+	multiplication_vectors();
+	product_vectors();
 	return EXIT_SUCCESS;
 
 }
