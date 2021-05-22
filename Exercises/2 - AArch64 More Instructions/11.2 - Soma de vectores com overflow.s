@@ -4,14 +4,15 @@
 
 // Adição de vetores – assumir que pode ocorrer overflow
 
-VECTOR_SUM: CBZ W2, FINISH
-	LDR W4, [X0]
-	LDR W5, [X1]
-	ADD W4, W4, W5
-	STR W4, [X0]
-	ADD X0, X0, 4
-	ADD X1, X1, 4
-	SUB W2, W2, 1
-	B VECTOR_SUM
+VECTOR_SUM: EOR X11, X11, X11
+Loop:   CBZ X3, FINISH
+	LDR W9, [X0]
+	LDR W10, [X1]
+    SMADDL X11, W9, W10, X11
+    SUB X3, X3, 1
+    ADD X0, X0, 4
+    ADD X1, X1, 4
+    B Loop
 
-FINISH: RET
+FINISH: MOV W0, W1
+    RET
