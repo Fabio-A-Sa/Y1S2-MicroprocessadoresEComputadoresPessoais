@@ -2,7 +2,7 @@
 .global op1
 .type op1, "function"
 
-op1: FSQRT D0, D0
-	SCVTF D1, W0
-	FADD D1, D0, D1
+op1: FADD D0, D0, D2
+	FMUL D0, D0, D1
+	FNEG D0, D0
 	RET
