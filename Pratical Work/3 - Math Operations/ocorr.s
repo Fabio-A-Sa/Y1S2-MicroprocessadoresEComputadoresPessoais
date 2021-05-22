@@ -22,5 +22,4 @@ fim: 	MOV W0, W7
 		MOV X6, 0
 		MOV X7, 2
 		MOV X29, 0
-		//MOV X30, 0
 		RET
