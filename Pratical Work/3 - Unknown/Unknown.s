@@ -17,6 +17,8 @@ Loop: 		LDRB W4, [X2]
 			B.EQ option_C
 			CMP W4, 80
 			B.EQ option_P
+			CMP W4, 66
+			B.EQ option_B
 
 option_L:	ADD X2, X2, 1
 			LDRB W4, [X2]
@@ -57,6 +59,26 @@ option_P:	ADD X2, X2, 1
 			STRB W6, [X3, X7]
 			ADD X2, X2, 1
 			B Loop
+
+option_B:	ADD X2, X2, 1
+			MUL W4, W0, W1
+			MOV W5, 0
+Loop_B: 	CMP W5, W4
+			B.EQ Loop
+			LDRB W6, [X3, X5]
+			CMP W6, 0
+			B.LT troca
+			CMP W6, 127
+			B.GT troca
+			MOV W6, 0
+			STRB W6, [X3, X5]
+			ADD W5, W5, 1
+			B Loop_B
+troca: 		MOV W6, 255
+			STRB W6, [X3, X5]
+			ADD W5, W5, 1
+			B Loop_B
+
 
 Finish: LDP X29, X30, [SP], 16
 	RET
