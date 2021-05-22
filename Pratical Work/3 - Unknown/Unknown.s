@@ -42,7 +42,7 @@ option_L:	ADD X2, X2, 1				// Atualiza o apontador das operações
 			LDRB W5, [X2]				// Load do número a colocar nessa linha toda (W5)
 			MUL W6, W4, W0				// W6 guarda o offset inicial da linha
 			ADD W7, W6, W0				// W7 guarda o offset final da linha
-Loop_L:		CMP W6, W7					// Enquanto W6 != W7, então muda o valor
+Loop_L:		CMP W6, W7					// Enquanto W6 != W7, muda o valor
 			B.EQ Line_comp
 			STRB W5, [X3, X6]			// O valor W5 é colocado na posição *(X3 + X6)
 			ADD X6, X6, 1				// Atualização de W6 para coincidir com o próximo valor, nessa linha
@@ -54,29 +54,29 @@ Line_comp: 	ADD X2, X2, 1				// Atualização do apontador das operações
 option_C:	ADD X2, X2, 1				// Atualiza o apontador das operações
 			LDRB W4, [X2]				// Load do número da coluna a alterar
 			ADD X2, X2, 1				// Atualiza o apontador das operações
-			LDRB W5, [X2]				//
-			MOV W6, W4
-			MUL W7, W0, W1
-Loop_C:		CMP W6, W7
+			LDRB W5, [X2]				// Load do número a colocar nessa coluna toda (W5)
+			MOV W6, W4					// W6 guarda o offset inicial da coluna
+			MUL W7, W0, W1				// W7 guarda o offset final da coluna
+Loop_C:		CMP W6, W7					// Enquanto W6 <= W7, muda o valor
 			B.HI Col_comp
-			STRB W5, [X3, X6]
-			ADD X6, X6, X0
+			STRB W5, [X3, X6]			// O valor W5 é colocado na posição *(X3 + X6)
+			ADD X6, X6, X0				// Atualização de W6 para coincidir com o próximo valor, nessa coluna
 			B Loop_C
-Col_comp: 	ADD X2, X2, 1
+Col_comp: 	ADD X2, X2, 1				// Atualização do apontador das operações
 			B Loop
 
-option_P:	ADD X2, X2, 1
-			LDRB W4, [X2]
-			ADD X2, X2, 1
-			LDRB W5, [X2]
-			ADD X2, X2, 1
-			LDRB W6, [X2]
-			MADD W7, W5, W0, W4
-			STRB W6, [X3, X7]
-			ADD X2, X2, 1
+option_P:	ADD X2, X2, 1				// Atualiza o apontador das operações
+			LDRB W4, [X2]				// W4 fica com o valor da coluna a alterar
+			ADD X2, X2, 1				// Atualiza o apontador das operações
+			LDRB W5, [X2]				// W5 fica com o valor da linha a alterar
+			ADD X2, X2, 1				// Atualiza o apontador das operações
+			LDRB W6, [X2]				// W6 fica com o valor a colocar na posição MATRIZ[W5][W4]
+			MADD W7, W5, W0, W4			// W7 fica com o valor de offset da posição a alterar
+			STRB W6, [X3, X7]			// W5 fica na posição *(X3 + X7)
+			ADD X2, X2, 1				// Atualizar o apontador das operações para a operação seguinte
 			B Loop
 
-option_B:	ADD X2, X2, 1
+option_B:	ADD X2, X2, 1				// Atualizar o apontador das operações
 			MUL W4, W0, W1
 			MOV W5, 0
 Loop_B: 	CMP W5, W4
