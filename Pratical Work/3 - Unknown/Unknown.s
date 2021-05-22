@@ -4,6 +4,9 @@
 
 OpMat: 		STP X29, X30, [SP, -16]!
 			MOV X29, SP
+			// Colocar aquele -1 na pilha desde o início
+			CBZ W0, Finish
+			CBZ W1, Finish
 
 Loop: 		LDRB W4, [X2]
 			CMP W4, 88
@@ -12,6 +15,8 @@ Loop: 		LDRB W4, [X2]
 			B.EQ option_L
 			CMP W4, 67
 			B.EQ option_C
+			CMP W4, 80
+			B.EQ option_P
 
 option_L:	ADD X2, X2, 1
 			LDRB W4, [X2]
@@ -28,7 +33,6 @@ Line_comp: 	ADD X2, X2, 1
 			B Loop
 
 
-
 option_C:	ADD X2, X2, 1
 			LDRB W4, [X2]
 			ADD X2, X2, 1
@@ -43,6 +47,16 @@ Loop_C:		CMP W6, W7
 Col_comp: 	ADD X2, X2, 1
 			B Loop
 
+option_P:	ADD X2, X2, 1
+			LDRB W4, [X2]
+			ADD X2, X2, 1
+			LDRB W5, [X2]
+			ADD X2, X2, 1
+			LDRB W6, [X2]
+			MADD W7, W5, W0, W4
+			STRB W6, [X3, X7]
+			ADD X2, X2, 1
+			B Loop
 
 Finish: LDP X29, X30, [SP], 16
 	RET
