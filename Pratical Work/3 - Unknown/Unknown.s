@@ -77,41 +77,41 @@ option_P:	ADD X2, X2, 1				// Atualiza o apontador das operações
 			B Loop
 
 option_B:	ADD X2, X2, 1				// Atualizar o apontador das operações
-			MUL W4, W0, W1
-			MOV W5, 0
+			MUL W4, W0, W1				// W4 fica com o offset máximo da matriz de W0 colunas e W1 linhas
+			MOV W5, 0					// W5 será o offset, que será incrementado até W5 == W4
 Loop_B: 	CMP W5, W4
 			B.EQ Loop
-			LDRB W6, [X3, X5]
+			LDRB W6, [X3, X5]			// Load do valor que está na posição *(X3+X5)
 			CMP W6, 0
-			B.LT troca
+			B.LT troca					// Se tiver valor abaixo de 0, trocar por 255
 			CMP W6, 127
-			B.GT troca
+			B.GT troca					// Se tiver valor superior a 127, trocar por 255
 			MOV W6, 0
-			STRB W6, [X3, X5]
+			STRB W6, [X3, X5]			// Neste caso está em [0, 127] --> Trocar por zero
 			ADD W5, W5, 1
 			B Loop_B
 troca: 		MOV W6, 255
-			STRB W6, [X3, X5]
-			ADD W5, W5, 1
+			STRB W6, [X3, X5]			// Store do valor 255 na posição *(X3+X5)
+			ADD W5, W5, 1				// Próximo valor da matriz
 			B Loop_B
 
 
-option_O:	ADD X2, X2, 1
-			STP X2, X3, [SP, 32]	// Guarda os apontadores X2 e X3 na pilha
+option_O:	ADD X2, X2, 1				// Próximo valor da sequência de operações
+			STP X2, X3, [SP, 32]		// Guarda os apontadores X2 e X3 na pilha
 			MOV X6, X2
-			MUL X2, X0, X1			// X2 --> Tamanho da matriz
-			MOV X1, X3				// X1 --> Apontador da matriz
-			LDRB W0, [X6]			// W0 --> Valor a procurar
-			BL ocorr
+			MUL X2, X0, X1				// X2 --> Tamanho da matriz
+			MOV X1, X3					// X1 --> Apontador da matriz
+			LDRB W0, [X6]				// W0 --> Valor a procurar
+			BL ocorr					// Chama a subrotina dos professores
 			MOV X4, X0
-			STP X4, X5, [SP, 48]	// Mete na pilha o valor
-			LDP X0, X1, [SP, 16]
-			LDP X2, X3, [SP, 32]
-			LDP X29, X30, [SP]
+			STP X4, X5, [SP, 48]		// Mete na pilha o valor retornado pela "ocorr"
+			LDP X0, X1, [SP, 16]		// Volta-se a arrumar a casa:
+			LDP X2, X3, [SP, 32]		// Todos os valores ganham novamente os seus respectivos postos ...
+			LDP X29, X30, [SP]			// ... fazendo load da pilha.
 			ADD X2, X2, 1
 			B Loop
 
-Finish:		LDP X4, X5, [SP, 48]	// X4 guarda o último valor da subrotina ocorr
-			MOV X0, X4				// Retorna assim o valor de X4
-			LDP X29, X30, [SP], 64 	// Recolocar o SP para o topo da pilha original
+Finish:		LDP X4, X5, [SP, 48]		// X4 guarda o último valor da subrotina ocorr
+			MOV X0, X4					// Retorna assim o valor de X4
+			LDP X29, X30, [SP], 64 		// Recolocar o SP para o topo da pilha original
 			RET
