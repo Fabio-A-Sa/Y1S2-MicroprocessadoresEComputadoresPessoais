@@ -115,3 +115,32 @@ Finish:		LDP X4, X5, [SP, 48]		// X4 guarda o último valor da subrotina ocorr
 			MOV X0, X4					// Retorna assim o valor de X4
 			LDP X29, X30, [SP], 64 		// Recolocar o SP para o topo da pilha original
 			RET
+
+// Coloco aqui também a minha função "ocorr", usada para testar a subrotina na sua plenitude
+// Para testar tudo, ela em cada iteração estraga todos os registos, excepto o W0 onde é retornado o valor
+
+//.text
+//.global ocorr
+//.type ocorr, "function"
+
+//ocorr: 	MOV W7, 0
+
+//loop: 	CBZ X2, fim
+//		LDRB W6, [X1]
+//		ADD X1, X1, 1
+//		SUB X2, X2, 1
+//		CMP W6, W0
+//		B.NE loop
+//		ADD W7, W7, 1
+//		B loop
+
+//fim: 	MOV W0, W7
+//		MOV X1, 0
+//		MOV X2, 0
+//		MOV X3, 0
+//		MOV X4, 0
+//		MOV X5, 0
+//		MOV X6, 0
+//		MOV X7, 0
+//		MOV X29, 0
+//		RET
