@@ -77,5 +77,29 @@ int main(void)
 	  res = OpMat(ncol, nlin, ops7, mat7);
 	  printmatrix(mat7, res, nlin, ncol);
 
+	  printf("\nTest 8\n");
+	  ncol = 1;
+	  nlin = 6;
+	  unsigned char mat8[] = {100, 102, 110, 220, 3, 219};
+	  unsigned char ops8[] = {'P', 0, 0, 250, 'L', 5, 250, 'O', 75, 'B', 'C', 0, 99, 'O', 99, 'C', 0, 0, 'X'};
+	  res = OpMat(ncol, nlin, ops8, mat8);
+	  printmatrix(mat8, res, nlin, ncol);
+
+	  printf("\nTest 9\n");
+	  ncol = 6;
+	  nlin = 1;
+	  unsigned char mat9[] = {100, 102, 110, 220, 3, 219};
+	  unsigned char ops9[] = {'P', 0, 0, 250, 'L', 0, 250, 'O', 250, 'B', 'C', 0, 99, 'O', 99, 'C', 0, 0, 'X'};
+	  res = OpMat(ncol, nlin, ops9, mat9);
+	  printmatrix(mat9, res, nlin, ncol);
+
+	  printf("\nTest 10\n");
+	  ncol = 6;
+	  nlin = 2;
+	  unsigned char mat10[] = {100, 102, 110, 220, 3, 219, 100, 102, 110, 220, 3, 219};
+	  unsigned char ops10[] = {'B', 'O', 5, 'X'};
+	  res = OpMat(ncol, nlin, ops10, mat10);
+	  printmatrix(mat10, res, nlin, ncol);
+
 	  return EXIT_SUCCESS;
 }
