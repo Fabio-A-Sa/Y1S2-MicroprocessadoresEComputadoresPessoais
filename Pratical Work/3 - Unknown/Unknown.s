@@ -33,28 +33,28 @@ Loop: 		LDRB W4, [X2]				// Load Byte da primeira letra do array de operações
 			B.EQ option_B				// Se for 'B', salta para a parte de operações de "binarização"
 			CMP W4, 79
 			B.EQ option_O				// Se for 'O', salta para a parte onde se chama a subrotina dos professores
-			B Finish					// Se não for nenhuma letra conhecida, estamos perante um caracter desconhecido -->
+			B Finish					// Se não for nenhuma letra das anteriores, estamos perante um caracter desconhecido -->
 										// --> Acaba imediatamente as operações
 
-option_L:	ADD X2, X2, 1
-			LDRB W4, [X2]
-			ADD X2, X2, 1
-			LDRB W5, [X2]
-			MUL W6, W4, W0
-			ADD W7, W6, W0
-Loop_L:		CMP W6, W7
+option_L:	ADD X2, X2, 1				// Atualiza o apontador das operações
+			LDRB W4, [X2]				// Load do número da linha a alterar
+			ADD X2, X2, 1				// Atualiza o apontador das operações
+			LDRB W5, [X2]				// Load do número a colocar nessa linha toda (W5)
+			MUL W6, W4, W0				// W6 guarda o offset inicial da linha
+			ADD W7, W6, W0				// W7 guarda o offset final da linha
+Loop_L:		CMP W6, W7					// Enquanto W6 != W7, então muda o valor
 			B.EQ Line_comp
-			STRB W5, [X3, X6]
-			ADD X6, X6, 1
+			STRB W5, [X3, X6]			// O valor W5 é colocado na posição *(X3 + X6)
+			ADD X6, X6, 1				// Atualização de W6 para coincidir com o próximo valor, nessa linha
 			B Loop_L
-Line_comp: 	ADD X2, X2, 1
+Line_comp: 	ADD X2, X2, 1				// Atualização do apontador das operações
 			B Loop
 
 
-option_C:	ADD X2, X2, 1
-			LDRB W4, [X2]
-			ADD X2, X2, 1
-			LDRB W5, [X2]
+option_C:	ADD X2, X2, 1				// Atualiza o apontador das operações
+			LDRB W4, [X2]				// Load do número da coluna a alterar
+			ADD X2, X2, 1				// Atualiza o apontador das operações
+			LDRB W5, [X2]				//
 			MOV W6, W4
 			MUL W7, W0, W1
 Loop_C:		CMP W6, W7
