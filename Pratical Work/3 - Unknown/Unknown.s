@@ -1,31 +1,40 @@
+// Fábio Araújo de Sá, up202007658
+// Maio, 2021
+
 .text
 .global OpMat
 .type OpMat, "function"
 
-OpMat:		STP X29, X30, [SP, -64]!
-			STP X0, X1, [SP, 16]
-			STP X2, X3, [SP, 32]
-			MOV X4, -1
-			MOV X5, 0
-			STP X4, X5, [SP, 48]
-			MOV X29, SP
-			CBZ W0, Finish
-			CBZ W1, Finish
+// W0 --> Número de colunas, unsigned char, word, 32 bits (W)
+// W1 --> Número de linhas, unsigned char, word, 32 bits (W)
+// X2 --> Apontador do início das operações, pointer, 64 bits (X)
+// X3 --> Apontador do início da matriz, pointer, 64 bits (X)
 
-Loop: 		LDRB W4, [X2]
-			CMP W4, 88
+OpMat:		STP X29, X30, [SP, -64]!	// Alocação de memória da pilha (64 bytes --> Valor mínimo e múltiplo de 16 ...
+			STP X0, X1, [SP, 16]		// ... suficiente para aguentar com o número de registos a preservar)
+			STP X2, X3, [SP, 32]		// Vai guardar X29, X30, X0, X1, X2, X3, X4
+			MOV X4, -1					// Inicialmente X4 é -1, valor a retornar quando acaba as operações ...
+			MOV X5, 0					// ... caso não encontre nenhum 'O' no processo
+			STP X4, X5, [SP, 48]
+			MOV X29, SP					// X29 irá guardar, a partir de agora, o valor de SP atualizado
+			CBZ W0, Finish				// Se o número de linhas ou de colunas for nulo ...
+			CBZ W1, Finish				// ... não faz sentido fazer nada.
+
+Loop: 		LDRB W4, [X2]				// Load Byte da primeira letra do array de operações
+			CMP W4, 88					// Se for igual a 'X', então não faz mais nada --> Acaba imediatamente as operações
 			B.EQ Finish
-			CMP W4, 76
+			CMP W4, 76					// Se for 'L', salta para a parte de operações da linha
 			B.EQ option_L
 			CMP W4, 67
-			B.EQ option_C
+			B.EQ option_C				// Se for 'C', salta para a parte de operações da coluna
 			CMP W4, 80
-			B.EQ option_P
+			B.EQ option_P				// Se for 'P', salta para a parte de operações da linha e coluna
 			CMP W4, 66
-			B.EQ option_B
+			B.EQ option_B				// Se for 'B', salta para a parte de operações de "binarização"
 			CMP W4, 79
-			B.EQ option_O
-			B Finish
+			B.EQ option_O				// Se for 'O', salta para a parte onde se chama a subrotina dos professores
+			B Finish					// Se não for nenhuma letra conhecida, estamos perante um caracter desconhecido -->
+										// --> Acaba imediatamente as operações
 
 option_L:	ADD X2, X2, 1
 			LDRB W4, [X2]
@@ -88,20 +97,21 @@ troca: 		MOV W6, 255
 
 
 option_O:	ADD X2, X2, 1
-			STP X2, X3, [SP, 32]
+			STP X2, X3, [SP, 32]	// Guarda os apontadores X2 e X3 na pilha
 			MOV X6, X2
 			MUL X2, X0, X1			// X2 --> Tamanho da matriz
 			MOV X1, X3				// X1 --> Apontador da matriz
 			LDRB W0, [X6]			// W0 --> Valor a procurar
 			BL ocorr
 			MOV X4, X0
-			STP X4, X5, [SP, 48]
+			STP X4, X5, [SP, 48]	// Mete na pilha o valor
 			LDP X0, X1, [SP, 16]
 			LDP X2, X3, [SP, 32]
+			LDP X29, X30, [SP]
 			ADD X2, X2, 1
 			B Loop
 
-Finish:		LDP X4, X5, [SP, 48]
-			MOV X0, X4
-			LDP X29, X30, [SP], 64
+Finish:		LDP X4, X5, [SP, 48]	// X4 guarda o último valor da subrotina ocorr
+			MOV X0, X4				// Retorna assim o valor de X4
+			LDP X29, X30, [SP], 64 	// Recolocar o SP para o topo da pilha original
 			RET
