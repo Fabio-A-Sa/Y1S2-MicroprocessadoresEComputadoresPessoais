@@ -2,8 +2,15 @@
 .global OpMat
 .type OpMat, "function"
 
-OpMat:		STP X29, X30, [SP, -16]!
+OpMat:		STP X29, X30, [SP, -64]!
+			STP X0, X1, [SP, 16]
+			STP X2, X3, [SP, 32]
+			MOV X4, -1
+			MOV X5, 0
+			STP X4, X5, [SP, 48]
 			MOV X29, SP
+			CBZ W0, Finish
+			CBZ W1, Finish
 
 Loop: 		LDRB W4, [X2]
 			CMP W4, 88
@@ -79,27 +86,22 @@ troca: 		MOV W6, 255
 			ADD W5, W5, 1
 			B Loop_B
 
-option_O:	ADD X2, X2, 1
-			MOV X7, X3
-			MOV X6, X2
-			MOV W5, W1
-			MOV W4, W0
 
+option_O:	ADD X2, X2, 1
+			STP X2, X3, [SP, 32]
+			MOV X6, X2
 			MUL X2, X0, X1			// X2 --> Tamanho da matriz
 			MOV X1, X3				// X1 --> Apontador da matriz
-			LDRB W0, [X2]			// W0 --> Valor a procurar
+			LDRB W0, [X6]			// W0 --> Valor a procurar
 			BL ocorr
-
-			MOV X3, X7
-			MOV X2, X6
-			MOV W1, W5
-			MOV W0, W4
+			MOV X4, X0
+			STP X4, X5, [SP, 48]
+			LDP X0, X1, [SP, 16]
+			LDP X2, X3, [SP, 32]
 			ADD X2, X2, 1
 			B Loop
 
-Finish: 	LDP X29, X30, [SP], 16
-			MOV X0, 4
+Finish:		LDP X4, X5, [SP, 48]
+			MOV X0, X4
+			LDP X29, X30, [SP], 64
 			RET
-
-ocorr: MOV W0, 0
-	RET
