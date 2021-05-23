@@ -5,6 +5,7 @@ extern double op1(double B, double M, double N);
 extern double op2(double W, double X);
 extern double expr(int A, int B, int C, int D);
 extern double area (int r);
+extern double dist(int x, int y, int w, int z);
 
 void doub1()
 {
@@ -35,12 +36,20 @@ void area_circle()
 	printf("Area of %d is %f\n", r2, area(r2));
 }
 
+void distance()
+{
+	int xA = 3, xB = 5, yA = 6, yB = 19;
+	double answer = dist(xA, yA, xB, yB);
+	printf("Area is %f\n", answer);
+}
+
 int main ()
 {
 	doub1();
 	doub2();
 	expression();
 	area_circle();
+	distance();
 	return 0;
 }
 
