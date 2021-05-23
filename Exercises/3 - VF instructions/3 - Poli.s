@@ -26,7 +26,7 @@ loop: CBZ X1, Finish
 	FADD S7, S7, S2
 
 	STR S7, [X0]
-	ADD X0, X0, 8
+	ADD X0, X0, 4
 	FADD S4, S4, S3
 	SUB X1, X1, 1
 	B loop
