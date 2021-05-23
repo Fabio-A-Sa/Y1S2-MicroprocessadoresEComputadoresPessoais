@@ -6,6 +6,7 @@ extern double op2(double W, double X);
 extern double expr(int A, int B, int C, int D);
 extern double area (int r);
 extern double dist(int x, int y, int w, int z);
+extern float pol(float *tab);
 
 void doub1()
 {
@@ -43,6 +44,17 @@ void distance()
 	printf("Area is %f\n", answer);
 }
 
+void poli()
+{
+	printf("Poli table\n");
+	float tab[] = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
+	float result = pol(tab);
+	for (int i = 0 ; i < (sizeof(tab) / sizeof(tab[0])) ; i++ )
+	{
+		printf("%*f\n", tab[i]);
+	}
+}
+
 int main ()
 {
 	doub1();
@@ -50,6 +62,7 @@ int main ()
 	expression();
 	area_circle();
 	distance();
+	poli();
 	return 0;
 }
 
