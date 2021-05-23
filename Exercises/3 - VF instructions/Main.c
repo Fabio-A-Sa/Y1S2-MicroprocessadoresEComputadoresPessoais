@@ -47,11 +47,11 @@ void distance()
 void poli()
 {
 	printf("Poli table\n");
-	float tab[] = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
+	float tab[101];
 	float result = pol(tab);
 	for (int i = 0 ; i < (sizeof(tab) / sizeof(tab[0])) ; i++ )
 	{
-		printf("%*f\n", tab[i]);
+		printf("%f\n", tab[i]);
 	}
 }
 
