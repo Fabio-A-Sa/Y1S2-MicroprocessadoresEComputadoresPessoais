@@ -33,6 +33,32 @@ int main()
 	closestCircle(NP, VP2, NC, VC2, ID2);
 	cout(NP, ID2);
 
+	printf("TEST 3: ");
+	NP = 0;
+	NC = 3;
+	int ID3[] = {-1, -1};
+	float VP3[] = {-3.0, 1.0, -3.0, -1.5};
+	double VC3[]= {0.0, -6.0, 6.0, -10.0, 0.0, 10.75, 0.0, 0.0, 5.0};
+	closestCircle(NP, VP3, NC, VC3, ID3);
+	cout(NP, ID3);
+
+	printf("TEST 4: ");
+	NP = 4;
+	NC = 0;
+	int ID4[] = {-1, -1, -1, -1};
+	float VP4[] = {-3.0, 1.0, -3.0, -1.5};
+	double VC4[]= {0.0, -6.0, 6.0, -10.0, 0.0, 10.75, 0.0, 0.0, 5.0};
+	closestCircle(NP, VP4, NC, VC4, ID4);
+	cout(NP, ID4);
+
+	printf("TEST 5: ");
+	NP = 6;
+	NC = 7;
+	int ID5[] = {-1, -1, -1, -1, -1, -1};
+	float VP5[] = {-3.0, 1.0, -3.0, -1.5, 5.5, 8.0, -7.2, 9.5, 3.2, 9.1, -3.0, -1.5};
+	double VC5[]= {0.0, -6.0, 6.0, -10.0, 0.0, 10.75, 0.0, 0.0, 5.0, 0.0, -6.0, 6.0, 0.0, -6.0, 6.0, 0.0, -6.0, 6.0, 0.0, -6.0, 6.0};
+	closestCircle(NP, VP5, NC, VC5, ID5);
+	cout(NP, ID5);
 
 
 	return EXIT_SUCCESS;
