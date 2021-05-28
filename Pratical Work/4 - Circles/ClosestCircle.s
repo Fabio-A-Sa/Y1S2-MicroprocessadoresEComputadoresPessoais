@@ -2,7 +2,7 @@
 // Maio, 2021
 
 .data
-	max: .double 1000000
+	max: .double 1000000.0
 .text
 .global closestCircle
 .type closestCircle, "function"
