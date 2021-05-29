@@ -8,6 +8,7 @@ extern double area (int r);
 extern double dist(int x, int y, int w, int z);
 extern float pol(float *tab);
 extern double intern(float *, float *, int num);
+extern long int conta(float *vector, int number, float a, float b);
 
 void doub1()
 {
@@ -66,15 +67,23 @@ void product()
 	printf("Result is %f", result);
 }
 
+void interval()
+{
+	printf("Intern product\n");
+	float v1[] = {8.2, 1.9, 3.2, 9.3};
+	long int result = conta(v1, 4, 2.4, 6.7);
+	printf("Result is %f", result);
+}
+
 int main ()
 {
-	//doub1();
-	//doub2();
-	//expression();
-	//area_circle();
-	//distance();
-	//poli();
+	doub1();
+	doub2();
+	expression();
+	area_circle();
+	distance();
+	poli();
 	product();
-	
+	interval();
 	return 0;
 }
