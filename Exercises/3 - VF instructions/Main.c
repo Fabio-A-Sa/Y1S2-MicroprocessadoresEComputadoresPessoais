@@ -7,6 +7,7 @@ extern double expr(int A, int B, int C, int D);
 extern double area (int r);
 extern double dist(int x, int y, int w, int z);
 extern float pol(float *tab);
+extern double intern(float *, float *, int num);
 
 void doub1()
 {
@@ -55,14 +56,25 @@ void poli()
 	}
 }
 
-int main ()
+void product()
 {
-	doub1();
-	doub2();
-	expression();
-	area_circle();
-	distance();
-	poli();
-	return 0;
+	printf("Intern product\n");
+	float v1[] = {8.2, 1.9, 3.2, 9.3};
+	float v2[] = {5.3, 5.2, 2.1, -3.2};
+	int num = 4;
+	double result = intern(v1, v2, num);
+	printf("Result is %f", result);
 }
 
+int main ()
+{
+	//doub1();
+	//doub2();
+	//expression();
+	//area_circle();
+	//distance();
+	//poli();
+	product();
+	
+	return 0;
+}
