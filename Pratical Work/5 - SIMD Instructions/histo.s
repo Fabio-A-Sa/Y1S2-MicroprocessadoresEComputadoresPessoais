@@ -9,14 +9,14 @@
 // X1 --> Apontador para o início de C, pointer, 64 bits
 // X2 --> Apontador para o início de H, pointer, 64 bits
 
-histo: 	MOV W7, W0 						// Número de notas guardado em W7 para fazer a média no final
-		MOV W6, 0 						// W6 fica como acumulador de todas as notas
+histo: 	MOV X7, X0 						// Número de notas guardado em W7 para fazer a média no final
+		MOV X6, 0 						// W6 fica como acumulador de todas as notas
 
 loop:	CBZ W0, Finish					// Se chegou ao final do vector das notas, acabar
 		LDR Q0, [X1], 16				// Fazer load das primeiras 16 notas
 		ADDV B5, V0.16B					// B5 fica com a soma de todos os valores de notas
-		MOV W5, V5.S[0]					// Colocar em W5 o valor acumulado no primeiro slot S do vector V5
-		ADD W6, W6, W5					// Acumular o valor obtido
+		MOV X5, V5.D[0]					// Colocar em W5 o valor acumulado no primeiro slot S do vector V5
+		ADD X6, X6, X5					// Acumular o valor obtido
 		SUB W0, W0, 16					// Já só faltam W0-16 notas a verificar
 		MOV W9, 20						// W9 é ao mesmo tempo a nota a comparar e o offset do vector H
 
@@ -36,7 +36,8 @@ jump: 	LDRB W3, [X2, X9]				// Buscar o valor antigo do Histograma, W3
 		SUB W9, W9, 1					// Agora é altura de verificar quantos W9-1 existem no conjunto de 16 notas, voltando ao Search
 		B search
 
-Finish: SCVTF S7, W7					// Converter o número de notas para vírgula flutuante, precisão simples (float)
-		SCVTF S6, W6					// Converter o número acumulado de notas para vírgula flutuante, precisão simples (float)
-		FDIV S0, S6, S7					// Uma média simples (S6/S7), colocada em S0 para poder retornar para o código C++
+Finish: SCVTF D7, X7					// Converter o número de notas para vírgula flutuante, precisão simples (float)
+		SCVTF D6, X6					// Converter o número acumulado de notas para vírgula flutuante, precisão simples (float)
+		FDIV D0, D6, D7					// Uma média simples (S6/S7), colocada em S0 para poder retornar para o código C++
+		FCVT S0, D0
 		RET
