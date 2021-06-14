@@ -27,7 +27,11 @@ One practical work per week in Assembly and C language, on routines and subrouti
 4. If necessary, start over from 1
 5. Submit final version
 
-- [x] Pratical Work 1:
+- [x] Assembly Pratical Work 1: Grade 20/20
+- [x] Assembly Pratical Work 2: Grade 20/20
+- [x] Assembly Pratical Work 3: Grade 20/20
+- [x] Assembly Pratical Work 4: Grade 20/20
+- [x] Assembly Pratical Work 5: Grade 20/20
 
 ***Bibliography:*** 
 
