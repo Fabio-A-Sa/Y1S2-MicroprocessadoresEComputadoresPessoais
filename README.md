@@ -27,6 +27,8 @@ One practical work per week in Assembly and C language, on routines and subrouti
 4. If necessary, start over from 1
 5. Submit final version
 
+- [x] Pratical Work 1:
+
 ***Bibliography:*** 
 
 [Moodle](https://moodle.up.pt/course/view.php?id=1826), João Canas Ferreira (2021)
