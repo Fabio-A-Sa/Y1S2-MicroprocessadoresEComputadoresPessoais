@@ -2,15 +2,16 @@
 
 This repository contains all the exercises and assessments of the UC Microprocessadores e Computadores Pessoais, taught by [João Canas Ferreira](https://sigarra.up.pt/feup/pt/FUNC_GERAL.FORMVIEW?p_codigo=210963) at [Integrated Master in Informatics and Computing Engineering](https://sigarra.up.pt/feup/pt/cur_geral.cur_view?pv_curso_id=742) [MIEIC] at the [Faculty of Engineering of the University of Porto](https://sigarra.up.pt/feup/pt/web_page.Inicial) [FEUP]. <br/>
 
-
-
 <br/>
-<p align="center">
+<p align = "center" >
+  <h2 align = "center" >
+    Final Grade: 17/20
+  </p>
   <img 
-      title = "FEUP logo"
-      src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnuoFGCRahdY0QX5gCJpTnHF29LV_TFPaoNQ&usqp=CAU" 
-      alt = "FEUP Logo" 
-    />
+       title = "FEUP logo"
+       src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnuoFGCRahdY0QX5gCJpTnHF29LV_TFPaoNQ&usqp=CAU" 
+       alt = "FEUP Logo" 
+       />
 </p>
 
 ## Here are several documents, namely:
@@ -37,6 +38,7 @@ One practical work per week in Assembly and C language, on routines and subrouti
 
 ***Bibliography:*** 
 
+<br>
 [Moodle](https://moodle.up.pt/course/view.php?id=1826), João Canas Ferreira (2021)
 <br>
 
