@@ -36,7 +36,7 @@ One practical work per week in Assembly and C language, on routines and subrouti
 - [x] Assembly Pratical Work 4: Grade 20/20
 - [x] Assembly Pratical Work 5: Grade 20/20
 
-***Bibliography:*** 
+***Bibliography:*** <br>
 [Moodle](https://moodle.up.pt/course/view.php?id=1826), João Canas Ferreira (2021)
 
 **@ Fábio Araújo de Sá** <br/>
